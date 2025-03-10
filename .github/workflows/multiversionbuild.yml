@@ -95,6 +95,7 @@ jobs:
         with:
           branch: gh-pages
           folder: ./preview  # Change this if you want to deploy a different IG output
+          target-folder: ${{ env.IS_DEFAULT_BRANCH == 'true' && '/' || 'branches/' }}${{ github.ref_name }}
           commit-message: Deploy main branch
           single-commit: true
           clean-exclude: |
