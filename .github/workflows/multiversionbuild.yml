@@ -89,13 +89,25 @@ jobs:
           name: qa-json-artifact
           path: ./output-*/qa.json  # Adjusted path to match multiple IGs
 
+      - name: Deploy candidate
+        uses: JamesIves/github-pages-deploy-action@v4.4.2
+        if: env.IS_DEFAULT_BRANCH == 'false'
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: ./preview # This is where the built IGs are stored.
+          commit-message: Deploy candidate branch
+          target-folder: branches/${{ github.ref_name }}
+          single-commit: true
+          clean: false 
+
       - name: Deploy main
         uses: JamesIves/github-pages-deploy-action@v4.4.2
         if: env.IS_DEFAULT_BRANCH == 'true'
         with:
-          branch: gh-pages
-          folder: ./preview  # Change this if you want to deploy a different IG output
+          branch: gh-pages # The branch the action should deploy to.
+          folder: ./preview # This is where the built IGs are stored.
           commit-message: Deploy main branch
           single-commit: true
           clean-exclude: |
             branches
+            sitepreview
