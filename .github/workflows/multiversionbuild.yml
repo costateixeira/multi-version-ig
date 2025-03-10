@@ -84,7 +84,7 @@ jobs:
         if: env.IS_DEFAULT_BRANCH == 'true'
         with:
           branch: gh-pages
-          folder: ./output-r4  # Change this if you want to deploy a different IG output
+          folder: ./preview  # Change this if you want to deploy a different IG output
           commit-message: Deploy main branch
           single-commit: true
           clean-exclude: |
