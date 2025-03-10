@@ -59,7 +59,7 @@ jobs:
         uses: docker://hl7fhir/ig-publisher-base:latest
         with:
           # Get the latest publisher - don't run the batch script but run the line directly
-          args: curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o ./input-cache/publisher.jar --create-dirs
+          args: curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o ./preview/publisher.jar --create-dirs
 
 
       - name: Create package cache folder
@@ -82,7 +82,7 @@ jobs:
           for dir in igs/*/; do
             echo "Processing IG in $dir"
             docker run --rm -v "$PWD/$dir:/work" -w /work hl7fhir/ig-publisher-base:latest \
-              java -Xmx6g -jar ./input-cache/publisher.jar publisher -ig r4 -auto-ig-build \
+              java -Xmx6g -jar ./preview/publisher.jar publisher -ig r4 -auto-ig-build \
               -repo "https://github.com/${{ github.repository }}/tree/${{ github.ref_name }}" \
               -package-cache-folder ./fhir-package-cache
           done
