@@ -52,14 +52,18 @@ jobs:
 
       - name: Run IG Publisher inside Docker for each IG folder
         run: |
-          mkdir -p ./fhir-package-cache ./preview  # Ensure the cache and preview folders exist on the host
+          mkdir -p ./fhir-package-cache ./preview  # Ensure cache and preview folders exist on the host
           for dir in igs/*/; do
-            echo "Processing IG in $dir"
-            
+            IG_NAME=$(basename "$dir")  # Extract folder name (e.g., r4, r5)
+            echo "Processing IG in $dir (output -> preview/$IG_NAME)"
+      
+            # Create a separate output folder for each IG version
+            mkdir -p "$PWD/tmp-output/$IG_NAME"
+      
             docker run --rm \
               -v "$PWD/$dir:/work" \
               -v "$PWD/fhir-package-cache:/work/fhir-package-cache" \
-              -v "$PWD/preview:/work/preview" \
+              -v "$PWD/tmp-output/$IG_NAME:/work/output" \
               -w /work hl7fhir/ig-publisher-base:latest /bin/sh -c "
                 mkdir -p /work/preview &&
                 curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o /work/preview/publisher.jar &&
@@ -68,10 +72,13 @@ jobs:
                   -package-cache-folder /work/fhir-package-cache
               "
       
-            # Copy output back to the host
-            cp -r "$dir/output/." "$PWD/preview/${dir##*/}"
+            # Ensure the target folder exists in preview
+            mkdir -p "$PWD/preview/$IG_NAME"
+            
+            # Copy only the contents of the output folder into preview/<IG_NAME>
+            cp -r "$PWD/tmp-output/$IG_NAME/." "$PWD/preview/$IG_NAME"
           done
-
+      
       - name: Remove publisher.jar before deployment
         run: rm -f ./preview/publisher.jar
 
