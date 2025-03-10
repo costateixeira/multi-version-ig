@@ -52,20 +52,25 @@ jobs:
 
       - name: Run IG Publisher inside Docker for each IG folder
         run: |
+          mkdir -p ./fhir-package-cache  # Ensure the cache folder exists on the host
           for dir in igs/*/; do
             echo "Processing IG in $dir"
-
-            docker run --rm -v "$PWD/$dir:/work" -w /work hl7fhir/ig-publisher-base:latest /bin/sh -c "
-              mkdir -p /work/preview && 
-              curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o /work/preview/publisher.jar &&
-              java -Xmx6g -jar /work/preview/publisher.jar publisher -ig r4 -auto-ig-build \
-                -repo 'https://github.com/${{ github.repository }}/tree/${{ github.ref_name }}' \
-                -package-cache-folder /work/fhir-package-cache
-            "
-
+      
+            docker run --rm \
+              -v "$PWD/$dir:/work" \
+              -v "$PWD/fhir-package-cache:/work/fhir-package-cache" \
+              -w /work hl7fhir/ig-publisher-base:latest /bin/sh -c "
+                mkdir -p /work/preview &&
+                curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o /work/preview/publisher.jar &&
+                java -Xmx6g -jar /work/preview/publisher.jar publisher -ig r4 -auto-ig-build \
+                  -repo 'https://github.com/${{ github.repository }}/tree/${{ github.ref_name }}' \
+                  -package-cache-folder /work/fhir-package-cache
+              "
+      
             # Copy output back to the host
             cp -r "$dir/output" "$PWD/output-${dir##*/}"
           done
+
 
       - name: Upload qa.json artifact
         if: success()
