@@ -72,7 +72,8 @@ jobs:
             cp -r "$dir/output" "$PWD/preview/${dir##*/}"
           done
 
-
+      - name: Remove publisher.jar before deployment
+        run: rm -f ./preview/publisher.jar
 
       - name: Upload qa.json artifact
         if: success()
