@@ -68,10 +68,14 @@ jobs:
           entrypoint: /bin/sh
           args: -c "mkdir -p ./fhir-package-cache && chown 1001:127 ./fhir-package-cache"
 
-      - name: Create a folder
-        run: mkdir -p preview
+      - name: Create package cache folder
+        uses: docker://hl7fhir/ig-publisher-base:latest
+        with:
+          entrypoint: /bin/sh
+          args: -c "mkdir -p ./preview && chown 1001:127 ./preview"
 
-      - run special script and create igs/r4, igs/r5, ... folders
+
+#      - run special script and create igs/r4, igs/r5, ... folders
 
       - name: Loop through IG folders and run IG publisher
         run: |
