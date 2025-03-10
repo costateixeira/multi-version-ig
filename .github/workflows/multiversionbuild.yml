@@ -68,18 +68,21 @@ jobs:
           entrypoint: /bin/sh
           args: -c "mkdir -p ./fhir-package-cache && chown 1001:127 ./fhir-package-cache"
 
-      - create `preview` folder
+      - name: Create a folder
+        run: mkdir -p preview
 
-      - name: Run the IG publisher
-        uses: docker://hl7fhir/ig-publisher-base:latest
-        with:
-          # Run the publisher - don't run the batch script but run the line directly
-          args: java -Xmx6g -jar ./input-cache/publisher.jar publisher -ig r4 -auto-ig-build -repo https://github.com/${{github.repository}}/tree/${{github.ref_name}} -package-cache-folder ./fhir-package-cache
+      - run special script and create igs/r4, igs/r5, ... folders
 
-      - copy the output folder to preview/r4
-
-      
-
+      - name: Loop through IG folders and run IG publisher
+        run: |
+          for dir in igs/*/; do
+            echo "Processing IG in $dir"
+            docker run --rm -v "$PWD/$dir:/work" -w /work hl7fhir/ig-publisher-base:latest \
+              java -Xmx6g -jar ./input-cache/publisher.jar publisher -ig r4 -auto-ig-build \
+              -repo "https://github.com/${{ github.repository }}/tree/${{ github.ref_name }}" \
+              -package-cache-folder ./fhir-package-cache
+          done
+          
 
       # Additional step to upload qa.json as an artifact
       - name: Upload qa.json artifact
