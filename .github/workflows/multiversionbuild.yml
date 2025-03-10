@@ -69,7 +69,7 @@ jobs:
               "
       
             # Copy output back to the host
-            cp -r "$dir/output" "$PWD/preview/${dir##*/}"
+            cp -r "$dir/output/." "$PWD/preview/${dir##*/}"
           done
 
       - name: Remove publisher.jar before deployment
