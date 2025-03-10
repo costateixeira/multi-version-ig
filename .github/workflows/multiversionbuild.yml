@@ -25,17 +25,13 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Get branch name
@@ -54,55 +50,36 @@ jobs:
             echo "IS_DEFAULT_BRANCH=false" >> $GITHUB_ENV
           fi
 
-
-      - name: Update the image to the latest publisher
-        uses: docker://hl7fhir/ig-publisher-base:latest
-        with:
-          # Get the latest publisher - don't run the batch script but run the line directly
-          args: curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o ./preview/publisher.jar --create-dirs
-
-
-      - name: Create package cache folder
-        uses: docker://hl7fhir/ig-publisher-base:latest
-        with:
-          entrypoint: /bin/sh
-          args: -c "mkdir -p ./fhir-package-cache && chown 1001:127 ./fhir-package-cache"
-
-      - name: Create package cache folder
-        uses: docker://hl7fhir/ig-publisher-base:latest
-        with:
-          entrypoint: /bin/sh
-          args: -c "mkdir -p ./preview && chown 1001:127 ./preview"
-
-
-#      - run special script and create igs/r4, igs/r5, ... folders
-
-      - name: Loop through IG folders and run IG publisher
+      - name: Run IG Publisher inside Docker for each IG folder
         run: |
           for dir in igs/*/; do
             echo "Processing IG in $dir"
-            docker run --rm -v "$PWD/$dir:/work" -w /work hl7fhir/ig-publisher-base:latest \
-              java -Xmx6g -jar ./preview/publisher.jar publisher -ig r4 -auto-ig-build \
-              -repo "https://github.com/${{ github.repository }}/tree/${{ github.ref_name }}" \
-              -package-cache-folder ./fhir-package-cache
-          done
-          
 
-      # Additional step to upload qa.json as an artifact
+            docker run --rm -v "$PWD/$dir:/work" -w /work hl7fhir/ig-publisher-base:latest /bin/sh -c "
+              mkdir -p /work/preview && 
+              curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o /work/preview/publisher.jar &&
+              java -Xmx6g -jar /work/preview/publisher.jar publisher -ig r4 -auto-ig-build \
+                -repo 'https://github.com/${{ github.repository }}/tree/${{ github.ref_name }}' \
+                -package-cache-folder /work/fhir-package-cache
+            "
+
+            # Copy output back to the host
+            cp -r "$dir/output" "$PWD/output-${dir##*/}"
+          done
+
       - name: Upload qa.json artifact
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: qa-json-artifact
-          path: ./output/qa.json  # Adjust the path based on where qa.json is located
-
+          path: ./output-*/qa.json  # Adjusted path to match multiple IGs
 
       - name: Deploy main
         uses: JamesIves/github-pages-deploy-action@v4.4.2
         if: env.IS_DEFAULT_BRANCH == 'true'
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: ./preview # The folder the action should deploy.
+          branch: gh-pages
+          folder: ./output-r4  # Change this if you want to deploy a different IG output
           commit-message: Deploy main branch
           single-commit: true
           clean-exclude: |
