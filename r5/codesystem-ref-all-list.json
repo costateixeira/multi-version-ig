@@ -1,0 +1,133 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://hl7.org/fhir/administrative-gender",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "AdministrativeGender",
+      "title" : "AdministrativeGender",
+      "description" : "The gender of a person used for administrative purposes.",
+      "oids" : ["2.16.840.1.113883.4.642.4.2"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-administrative-gender.html" : "AdministrativeGender"
+    },
+    {
+      "url" : "http://hl7.org/fhir/diagnostic-report-status",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "DiagnosticReportStatus",
+      "title" : "Diagnostic Report Status",
+      "description" : "The status of the diagnostic report.",
+      "oids" : [
+        "2.16.840.1.113883.4.642.2.118",
+        "2.16.840.1.113883.4.642.4.236",
+        "2.16.840.1.113883.4.642.1.231"
+      ],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-diagnostic-report-status.html" : "Diagnostic Report Status"
+    },
+    {
+      "url" : "http://hl7.org/fhir/link-type",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "LinkType",
+      "title" : "Link Type",
+      "description" : "The type of link between this Patient resource and other Patient/RelatedPerson resource(s).",
+      "oids" : [
+        "2.16.840.1.113883.4.642.1.413",
+        "2.16.840.1.113883.4.642.2.234",
+        "2.16.840.1.113883.4.642.4.424"
+      ],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-link-type.html" : "Link Type"
+    },
+    {
+      "url" : "http://loinc.org",
+      "version" : "3.1.0",
+      "status" : "active",
+      "name" : "LOINC",
+      "title" : "Logical Observation Identifiers, Names and Codes (LOINC)",
+      "description" : "LOINC provides a set of universal names and ID codes for identifying laboratory and clinical test results.1,2 LOINC facilitates the exchange and pooling of results, such as blood hemoglobin, serum potassium, or vital signs, for clinical care, outcomes management, and research. LOINC's universal identifiers (names and codes) can be used in the context of order and observation exchanges between information systems that use syntax standards such as HL73, CEN TC251, ISO TC215, ASTM4, and DICOM. Specifically, the identifier can be used as the coded value for an observation in any other standard that uses the observation/observation value paradigm, whether messages, documents, application programming interface (API), etc. For example, LOINC codes are used widely in the OBX segment Observation Identifier field (OBX-3) of an ORU HL7 (HL7 version 2.x or ASTM 1238-9410) message that may be sent between a Clinical Laboratory Information Management Systems (LIMS) and Electronic Health Record Systems (EHR).5, 6 In this way, LOINC codes provide universal identifiers that allow the exchange of clinical data between heterogeneous computing environments.",
+      "oids" : ["2.16.840.1.113883.6.1"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-report-codes.html" : "LOINC Diagnostic Report Codes"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v2-0074",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "DiagnosticServiceSectionId",
+      "title" : "diagnosticServiceSectionId",
+      "description" : "HL7-defined code system of concepts which specify a section of a diagnostic service where the observation may be performed.  Used in HL7 Version 2.x messaging in the OBR and OM4 segments.",
+      "oids" : ["2.16.840.1.113883.18.29"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-diagnostic-service-sections.html" : "Diagnostic Service Section Codes"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v2-0131",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "ContactRole2",
+      "title" : "contactRole2",
+      "description" : "Code system of concepts which specify a relationship role that the next of kin/associated parties plays with regard to the patient. Also used in referrals, for example, it may be necessary to identify the contact representative at the clinic that sent a referral. Used in HL7 Version 2 messaging in the NK1 and CTD segments after 2.5, when it replace 2.16.840.1.113883.18.57.",
+      "oids" : ["2.16.840.1.113883.18.58"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-patient-contactrelationship.html" : "Patient Contact Relationship "
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v2-0936",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "ObservationType",
+      "title" : "observationType",
+      "description" : "HL7-defined code system of concepts specifying types of observations to enable systems to distinguish between observations sent along with an order, versus observations sent as the result to an order. Used in HL7 Version 2.x messaging in the OBX segment.",
+      "oids" : ["2.16.840.1.113883.18.439"],
+      "uses" : {
+      },
+      "http://terminology.hl7.org/6.2.0/ValueSet-v2-0936.html" : "hl7VS-VS-observationType"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+      "version" : "3.0.0",
+      "status" : "active",
+      "name" : "MaritalStatus",
+      "title" : "MaritalStatus",
+      "description" : "\\* \\* \\* No description supplied \\* \\* \\*\r\n\r\n*Open Issue:* The specific meanings of these codes can vary somewhat by jurisdiction and implementation so caution should be used when determining equivalency.\r\n\r\n*Open Issue:* fixing and completion of the hierarchy and proper good definitions of all the concepts is badly needed.",
+      "oids" : ["2.16.840.1.113883.5.2"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-marital-status.html" : "Marital Status Codes"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+      "version" : "3.0.0",
+      "status" : "active",
+      "name" : "NullFlavor",
+      "title" : "NullFlavor",
+      "description" : "A collection of codes specifying why a valid value is not present.",
+      "oids" : ["2.16.840.1.113883.5.1008"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-marital-status.html" : "Marital Status Codes"
+    },
+    {
+      "url" : "urn:ietf:bcp:47",
+      "version" : "2.0.1",
+      "status" : "active",
+      "name" : "Ietf3066",
+      "title" : "Tags for the Identification of Languages",
+      "description" : "Older value from OID registry.  Superceded; see recommendations in BCP-47.",
+      "oids" : ["2.16.840.1.113883.6.121"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-all-languages.html" : "All Languages",
+      "http://hl7.org/fhir/R5/valueset-languages.html" : "Common Languages"
+    }
+  ]
+}

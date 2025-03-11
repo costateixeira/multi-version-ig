@@ -1,0 +1,51 @@
+multiVersionTestIG : Validation Results
+=========================================
+
+err = 0, warn = 7, info = 1
+IG Publisher Version: 1.8.20
+Generated Tue Mar 11 14:27:25 UTC 2025. FHIR version 4.0.1 for fhir.example#0.1.0 (canonical = http://example.org)
+ Build Errors : 26 / 5 / 0
+ /work/fsh-generated/resources/ImplementationGuide-fhir.example : 0 / 1 / 1
+ /work/fsh-generated/resources/Patient-PatientExample : 0 / 0 / 1
+ /work/fsh-generated/resources/StructureDefinition-MyPatient : 0 / 0 / 2
+ /work/fsh-generated/resources/StructureDefinition-diagnosticreportTEST : 0 / 1 / 1
+</table>
+== n/a ==
+WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/diagnosticreportTEST.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+ERROR: /work/output/Patient-PatientExample.change.history.html#/html/body/div/div/div/p/a at Line 186, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/Patient-PatientExample.html#/html/body/div/div/div/p/a at Line 195, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/Patient-PatientExample.json.html#/html/body/div/div/div/p/a at Line 215, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/Patient-PatientExample.ttl.html#/html/body/div/div/div/p/a at Line 222, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/Patient-PatientExample.xml.html#/html/body/div/div/div/p/a at Line 209, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-MyPatient-definitions.html#/html/body/div/div/div/p/a at Line 542, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-MyPatient-examples.html#/html/body/div/div/div/p/a at Line 254, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-MyPatient-mappings.html#/html/body/div/div/div/p/a at Line 355, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-MyPatient-testing.html#/html/body/div/div/div/p/a at Line 250, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-MyPatient.html#/html/body/div/div/div/p/a at Line 1599, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-MyPatient.profile.history.html#/html/body/div/div/div/p/a at Line 232, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-MyPatient.profile.json.html#/html/body/div/div/div/p/a at Line 2462, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-MyPatient.profile.ttl.html#/html/body/div/div/div/p/a at Line 1871, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-MyPatient.profile.xml.html#/html/body/div/div/div/p/a at Line 2307, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-diagnosticreportTEST-definitions.html#/html/body/div/div/div/p/a at Line 432, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-diagnosticreportTEST-examples.html#/html/body/div/div/div/p/a at Line 233, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-diagnosticreportTEST-mappings.html#/html/body/div/div/div/p/a at Line 311, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-diagnosticreportTEST-testing.html#/html/body/div/div/div/p/a at Line 240, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-diagnosticreportTEST.html#/html/body/div/div/div/p/a at Line 1230, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-diagnosticreportTEST.profile.history.html#/html/body/div/div/div/p/a at Line 222, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-diagnosticreportTEST.profile.json.html#/html/body/div/div/div/p/a at Line 1912, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-diagnosticreportTEST.profile.ttl.html#/html/body/div/div/div/p/a at Line 1455, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/StructureDefinition-diagnosticreportTEST.profile.xml.html#/html/body/div/div/div/p/a at Line 1774, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/artifacts.html#/html/body/div/div/div/p/a at Line 203, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/index.html#/html/body/div/div/div/p/a at Line 200, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+ERROR: /work/output/toc.html#/html/body/div/div/div/p/a at Line 142, column 28: The link 'http://example.org/example-publisher' for "Example Publisher" cannot be resolved
+WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
+WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
+== fsh-generated/resources/ImplementationGuide-fhir.example.json ==
+WARNING: ImplementationGuide/fhir.example: ImplementationGuide: Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'
+== fsh-generated/resources/Patient-PatientExample.json ==
+== fsh-generated/resources/StructureDefinition-MyPatient.json ==
+INFORMATION: StructureDefinition/MyPatient: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
+== fsh-generated/resources/StructureDefinition-diagnosticreportTEST.json ==
+WARNING: StructureDefinition.where(url = 'http://example.org/StructureDefinition/diagnosticreportTEST'): The Implementation Guide contains no examples for this profile

@@ -1,0 +1,209 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/administrative-gender",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "AdministrativeGender",
+      "title" : "AdministrativeGender",
+      "description" : "The gender of a person used for administrative purposes.",
+      "systems" : ["http://hl7.org/fhir/administrative-gender"],
+      "oids" : ["2.16.840.1.113883.4.642.3.1"],
+      "sources" : ["2.16.840.1.113883.4.642.3.1"],
+      "uses" : {
+      },
+      "StructureDefinition-MyPatient.html" : "MyPatient"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/all-languages",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "AllLanguages",
+      "title" : "All Languages",
+      "description" : "This value set includes all possible codes from BCP-47 (see http://tools.ietf.org/html/bcp47)",
+      "systems" : ["urn:ietf:bcp:47"],
+      "oids" : ["2.16.840.1.113883.4.642.3.21"],
+      "sources" : ["2.16.840.1.113883.4.642.3.21"],
+      "uses" : {
+      },
+      "StructureDefinition-diagnosticreportTEST.html" : "DiagnosticReportTEST",
+      "StructureDefinition-MyPatient.html" : "MyPatient"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/clinical-findings",
+      "version" : "5.0.0",
+      "status" : "draft",
+      "name" : "SNOMEDCTClinicalFindings",
+      "title" : "SNOMED CT Clinical Findings",
+      "description" : "This value set includes all the \"Clinical finding\" [SNOMED CT](http://snomed.info/sct) codes - concepts where concept is-a 404684003 (Clinical finding (finding)).",
+      "systems" : ["http://snomed.info/sct"],
+      "oids" : [
+        "2.16.840.1.113883.4.642.3.232",
+        "2.16.840.1.113883.4.642.3.227",
+        "2.16.840.1.113883.4.642.2.115"
+      ],
+      "sources" : [
+        "2.16.840.1.113883.4.642.3.232",
+        "2.16.840.1.113883.4.642.3.227",
+        "2.16.840.1.113883.4.642.2.115"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-diagnosticreportTEST.html" : "DiagnosticReportTEST"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/diagnostic-report-status",
+      "version" : "5.0.0",
+      "status" : "draft",
+      "name" : "DiagnosticReportStatus",
+      "title" : "Diagnostic Report Status",
+      "description" : "The status of the diagnostic report.",
+      "systems" : ["http://hl7.org/fhir/diagnostic-report-status"],
+      "oids" : [
+        "2.16.840.1.113883.4.642.3.235",
+        "2.16.840.1.113883.4.642.2.118",
+        "2.16.840.1.113883.4.642.3.230"
+      ],
+      "sources" : [
+        "2.16.840.1.113883.4.642.3.235",
+        "2.16.840.1.113883.4.642.2.118",
+        "2.16.840.1.113883.4.642.3.230"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-diagnosticreportTEST.html" : "DiagnosticReportTEST"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
+      "version" : "5.0.0",
+      "status" : "draft",
+      "name" : "DiagnosticServiceSectionCodes",
+      "title" : "Diagnostic Service Section Codes",
+      "description" : "This value set includes all the codes in HL7 V2 table 0074.",
+      "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0074"],
+      "oids" : [
+        "2.16.840.1.113883.4.642.3.234",
+        "2.16.840.1.113883.4.642.2.117",
+        "2.16.840.1.113883.4.642.3.229"
+      ],
+      "sources" : [
+        "2.16.840.1.113883.4.642.3.234",
+        "2.16.840.1.113883.4.642.2.117",
+        "2.16.840.1.113883.4.642.3.229"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-diagnosticreportTEST.html" : "DiagnosticReportTEST"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/languages",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "CommonLanguages",
+      "title" : "Common Languages",
+      "description" : "This value set includes common codes from BCP-47 (see http://tools.ietf.org/html/bcp47)",
+      "systems" : ["urn:ietf:bcp:47"],
+      "oids" : [
+        "2.16.840.1.113883.4.642.3.891",
+        "2.16.840.1.113883.4.642.3.20"
+      ],
+      "sources" : [
+        "2.16.840.1.113883.4.642.3.891",
+        "2.16.840.1.113883.4.642.3.20"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-diagnosticreportTEST.html" : "DiagnosticReportTEST",
+      "StructureDefinition-MyPatient.html" : "MyPatient"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/link-type",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "LinkType",
+      "title" : "Link Type",
+      "description" : "The type of link between this Patient resource and another Patient/RelatedPerson resource.",
+      "systems" : ["http://hl7.org/fhir/link-type"],
+      "oids" : [
+        "2.16.840.1.113883.4.642.2.234",
+        "2.16.840.1.113883.4.642.3.423",
+        "2.16.840.1.113883.4.642.3.412"
+      ],
+      "sources" : [
+        "2.16.840.1.113883.4.642.2.234",
+        "2.16.840.1.113883.4.642.3.423",
+        "2.16.840.1.113883.4.642.3.412"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-MyPatient.html" : "MyPatient"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/marital-status",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "MaritalStatusCodes",
+      "title" : "Marital Status Codes",
+      "description" : "This value set defines the set of codes that can be used to indicate the marital status of a person.",
+      "systems" : [
+        "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+        "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+      ],
+      "oids" : ["2.16.840.1.113883.4.642.3.29"],
+      "sources" : ["2.16.840.1.113883.4.642.3.29"],
+      "uses" : {
+      },
+      "StructureDefinition-MyPatient.html" : "MyPatient"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/patient-contactrelationship",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "PatientContactRelationship",
+      "title" : "Patient Contact Relationship ",
+      "description" : "The nature of the relationship between the patient and the contact person.",
+      "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0131"],
+      "oids" : ["2.16.840.1.113883.4.642.3.1130"],
+      "sources" : ["2.16.840.1.113883.4.642.3.1130"],
+      "uses" : {
+      },
+      "StructureDefinition-MyPatient.html" : "MyPatient"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/report-codes",
+      "version" : "5.0.0",
+      "status" : "draft",
+      "name" : "LOINCDiagnosticReportCodes",
+      "title" : "LOINC Diagnostic Report Codes",
+      "description" : "This value set includes LOINC codes that relate to Diagnostic Observations.",
+      "systems" : ["http://loinc.org"],
+      "oids" : [
+        "2.16.840.1.113883.4.642.2.116",
+        "2.16.840.1.113883.4.642.3.233",
+        "2.16.840.1.113883.4.642.3.228"
+      ],
+      "sources" : [
+        "2.16.840.1.113883.4.642.2.116",
+        "2.16.840.1.113883.4.642.3.233",
+        "2.16.840.1.113883.4.642.3.228"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-diagnosticreportTEST.html" : "DiagnosticReportTEST"
+    },
+    {
+      "url" : "http://terminology.hl7.org/ValueSet/v2-0936",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "Hl7VSVSObservationType",
+      "title" : "hl7VS-VS-observationType",
+      "description" : "Value Set of codes that specify types of observations to enable systems to distinguish between observations sent along with an order, versus observations sent as the result to an order.",
+      "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0936"],
+      "oids" : ["2.16.840.1.113883.21.460"],
+      "sources" : ["2.16.840.1.113883.21.460"],
+      "uses" : {
+      },
+      "StructureDefinition-diagnosticreportTEST.html" : "DiagnosticReportTEST"
+    }
+  ]
+}
