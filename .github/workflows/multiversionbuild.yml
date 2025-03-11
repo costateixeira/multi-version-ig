@@ -50,6 +50,12 @@ jobs:
             echo "IS_DEFAULT_BRANCH=false" >> $GITHUB_ENV
           fi
 
+      - name: Run preprocessor
+        run: |
+          chmod a+x ./_preprocessMultiVersion.sh
+          ./_preprocessMultiVersion.sh
+
+
       - name: Run IG Publisher inside Docker for each IG folder
         run: |
           mkdir -p ./fhir-package-cache ./preview  # Ensure cache and preview folders exist on the host
